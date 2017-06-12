@@ -103,14 +103,14 @@ static inline NSArray *generateGetterDescription(NSString *className, NSString *
                                AddLine(@"   if (!_%@) {",propertyName)\
 
 #define GetterBegin GetterBeginWithoutInit\
-                    AddLine(@"        _%@ = [%@ new];",propertyName, className)
+                    AddLine(@"       _%@ = [%@ new];",propertyName, className)
 
 #define GetterEnd   AddLine(@"   }")\
                     AddLine(@"   return _%@;",propertyName)\
                     AddLine(@"}" )\
                     return getter;
 
-#define AddBackgroundColorLine AddLine(@"        _%@.backgroundColor = [UIColor <#Color#>];",propertyName)
+#define AddBackgroundColorLine AddLine(@"       _%@.backgroundColor = [UIColor <#Color#>];",propertyName)
 
 static inline NSArray *UIViewGetter(NSString *propertyName) {
     
@@ -125,8 +125,8 @@ static inline NSArray *UILabelGetter(NSString *propertyName) {
     NSString *className = @"UILabel";
     GetterBegin
     
-    AddLine(@"        _%@.font = [UIFont systemFontOfSize:<#(CGFloat)#>];",propertyName);
-    AddLine(@"        _%@.textColor = <#Color#>;",propertyName)
+    AddLine(@"       _%@.font = [UIFont systemFontOfSize:<#(CGFloat)#>];",propertyName);
+    AddLine(@"       _%@.textColor = <#Color#>;",propertyName)
     AddBackgroundColorLine
     
     GetterEnd
@@ -137,8 +137,8 @@ static inline NSArray *UIButtonGetter(NSString *propertyName) {
     NSString *className = @"UIButton";
     GetterBeginWithoutInit
     
-    AddLine(@"        _%@ = [UIButton buttonWithType:UIButtonTypeCustom];",propertyName)
-    AddLine(@"        _%@.titleLabel.font = [UIFont systemFontOfSize:<#(CGFloat)#>];",propertyName)
+    AddLine(@"       _%@ = [UIButton buttonWithType:UIButtonTypeCustom];",propertyName)
+    AddLine(@"       _%@.titleLabel.font = [UIFont systemFontOfSize:<#(CGFloat)#>];",propertyName)
     AddLine(@"       [_%@ setTitle:<#Title#> forState:UIControlStateNormal];",propertyName)
     AddLine(@"       [_%@ setTitleColor:<#Color#> forState:UIControlStateNormal];",propertyName);
     
@@ -150,8 +150,8 @@ static inline NSArray *UITextViewGetter(NSString *propertyName) {
     NSString *className = @"UITextView";
     GetterBegin
     
-    AddLine(@"        _%@.font = [UIFont systemFontOfSize:<#(CGFloat)#>];",propertyName);
-    AddLine(@"        _%@.textColor = <#Color#>;",propertyName)
+    AddLine(@"       _%@.font = [UIFont systemFontOfSize:<#(CGFloat)#>];",propertyName);
+    AddLine(@"       _%@.textColor = <#Color#>;",propertyName)
     
     GetterEnd
 }
@@ -161,11 +161,11 @@ static inline NSArray *UITextFieldGetter(NSString *propertyName) {
     NSString *className = @"UITextField";
     GetterBegin
     
-    AddLine(@"        _%@.borderStyle = <#UITextBorderStyle#>;",propertyName)
-    AddLine(@"        _%@.returnKeyType = <#UIReturnKeyType#>;",propertyName)
-    AddLine(@"        _%@.secureTextEntry = <#BOOL#>;",propertyName)
-    AddLine(@"        _%@.clearButtonMode = UITextFieldViewModeWhileEditing;",propertyName)
-    AddLine(@"        _%@.keyboardAppearance = UIKeyboardAppearanceDefault;",propertyName)
+    AddLine(@"       _%@.borderStyle = <#UITextBorderStyle#>;",propertyName)
+    AddLine(@"       _%@.returnKeyType = <#UIReturnKeyType#>;",propertyName)
+    AddLine(@"       _%@.secureTextEntry = <#BOOL#>;",propertyName)
+    AddLine(@"       _%@.clearButtonMode = UITextFieldViewModeWhileEditing;",propertyName)
+    AddLine(@"       _%@.keyboardAppearance = UIKeyboardAppearanceDefault;",propertyName)
     
     GetterEnd
 }
@@ -175,8 +175,8 @@ static inline NSArray *UIImageViewGetter(NSString *propertyName) {
     NSString *className = @"UIImageView";
     GetterBegin
     
-    AddLine(@"        _%@.contentMode = UIViewContentModeScaleAspectFit;", propertyName)
-    AddLine(@"        _%@.image = [UIImage imageNamed:<#(nonnull NSString *)#>];", propertyName)
+    AddLine(@"       _%@.contentMode = UIViewContentModeScaleAspectFit;", propertyName)
+    AddLine(@"       _%@.image = [UIImage imageNamed:<#(nonnull NSString *)#>];", propertyName)
     
     GetterEnd
 }
@@ -186,7 +186,7 @@ static inline NSArray *UITableViewGetter(NSString *propertyName) {
     NSString *className = @"UITableView";
     GetterBeginWithoutInit
     
-    AddLine(@"        _%@ = [[UITableView alloc] initWithFrame:<#(CGRect)#> style:<#(UITableViewStyle)#>]",propertyName)
+    AddLine(@"       _%@ = [[UITableView alloc] initWithFrame:<#(CGRect)#> style:<#(UITableViewStyle)#>]",propertyName)
     AddBackgroundColorLine
     
     GetterEnd
@@ -201,7 +201,7 @@ static inline NSArray *UICollectionViewGetter(NSString *propertyName) {
     AddLine(@"        flowLayout.itemSize = CGSizeMake(<#CGFloat width#>, <#CGFloat height#>);")
     AddLine(@"        flowLayout.minimumLineSpacing = <#Spacing#>;")
     AddLine(@"        flowLayout.minimumInteritemSpacing = <#Spacing#>;")
-    AddLine(@"        _%@ = [[UICollectionView alloc] initWithFrame:<#CGRect#> collectionViewLayout:flowLayout];",propertyName)
+    AddLine(@"       _%@ = [[UICollectionView alloc] initWithFrame:<#CGRect#> collectionViewLayout:flowLayout];",propertyName)
     AddBackgroundColorLine
     
     GetterEnd
